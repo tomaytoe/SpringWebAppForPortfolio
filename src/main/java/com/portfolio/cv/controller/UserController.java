@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController{
 	@Autowired private UserService service;
 
-	@GetMapping("/index")
+	@GetMapping("/")
 	public String showIndex(){
 		User user = new User();
 		user.setEmail("envagyoktamas@gmail.com");
