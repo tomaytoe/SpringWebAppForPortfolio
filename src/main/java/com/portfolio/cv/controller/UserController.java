@@ -1,6 +1,6 @@
 package com.portfolio.cv.controller;
 
-import com.portfolio.cv.entity.User;
+import com.portfolio.cv.entity.Customer;
 import com.portfolio.cv.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,13 +12,14 @@ public class UserController{
 
 	@GetMapping("/")
 	public String showIndex(){
-		User user = new User();
-		user.setEmail("envagyoktamas@gmail.com");
-		user.setFirst_name("Tamas");
-		user.setLast_name("Fulop");
+		Customer user = new Customer();
+		user.setEmail("envagyoknoemi@gmail.com");
+		user.setFirst_name("Noemi");
+		user.setLast_name("Szepfalusi");
 		user.setPassword("4321");
 
 		service.addUser(user);
+
 		return "index";
 	}
 	

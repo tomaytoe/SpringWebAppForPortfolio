@@ -11,18 +11,18 @@ import org.springframework.test.annotation.Rollback;
 @AutoConfigureTestDatabase(replace=AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
 public class UserRepositoryTest {
-    @Autowired private UserRepository repo;
+    @Autowired private CustomerRepository repo;
 
     @Test
     public void testAddUser(){
-        User user = new User();
+        Customer user = new Customer();
 
         user.setEmail("asd@asd.com");
         user.setFirst_name("Tamás");
         user.setLast_name("Fülöp");
         user.setPassword("12345");
 
-        User savedUser = repo.save(user);
+        Customer savedUser = repo.save(user);
 
         Assertions.assertThat(savedUser).isNotNull();
         Assertions.assertThat(savedUser.getId()).isGreaterThan(0);
