@@ -1,6 +1,7 @@
 package com.portfolio.cv.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -42,5 +43,16 @@ public class LoggingAspect {
         String theMethod = theJoinPoint.getSignature().toLongString();
         logger.info("====> In @Before: calling method: " + theMethod);
     }
+
     //add @AfterReturning advice
+    @AfterReturning(
+            pointcut = "forAppFlow()",
+            returning = "theResult"
+    )
+    public void afterReturning(JoinPoint theJoinPoint, Object theResult){
+        String theMethod = theJoinPoint.getSignature().toLongString();
+        logger.info("====> In @AfterReturning: from method: " + theMethod);
+
+        logger.info("====> result: " + theResult);
+    }
 }
